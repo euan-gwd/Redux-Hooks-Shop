@@ -1,7 +1,7 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import { reducer } from './reducers';
-import { loadProducts } from './actions';
-import thunk from 'redux-thunk';
+import { createStore, applyMiddleware, compose } from 'redux'
+import rootReducer from './reducers'
+import { loadProducts } from './actions'
+import thunk from 'redux-thunk'
 
 const configureStore = () => {
   const composeEnhancers =
@@ -9,15 +9,15 @@ const configureStore = () => {
       ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
           trace: true
         })
-      : compose;
+      : compose
 
-  const enhancer = composeEnhancers(applyMiddleware(thunk));
+  const enhancer = composeEnhancers(applyMiddleware(thunk))
 
-  const store = createStore(reducer, enhancer);
+  const store = createStore(rootReducer, enhancer)
 
-  store.dispatch(loadProducts());
+  store.dispatch(loadProducts())
 
-  return store;
-};
+  return store
+}
 
-export default configureStore;
+export default configureStore

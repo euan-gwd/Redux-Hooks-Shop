@@ -1,13 +1,13 @@
-import React, { Fragment } from 'react';
-import { connect } from 'react-redux';
-import billboard from './billboard.png';
-import Logo from '../Logo/Logo';
-import { MdSort, MdShoppingCart } from 'react-icons/md';
-import { calculateTotals } from '../utils';
-import './header-styles.css';
+import React, { Fragment } from 'react'
+import { connect } from 'react-redux'
+import billboard from './billboard.png'
+import Logo from '../Logo/Logo'
+import { MdSort, MdShoppingCart } from 'react-icons/md'
+import { calculateTotals } from '../utils'
+import './header-styles.css'
 
 const Header = ({ shoppingCart }) => {
-  const cartTotal = calculateTotals(shoppingCart);
+  const cartTotal = calculateTotals(shoppingCart)
   return (
     <Fragment>
       <div className="App-heading App-flex">
@@ -23,11 +23,11 @@ const Header = ({ shoppingCart }) => {
         <img className="App-hero" src={billboard} alt="hero image" />
       </div>
     </Fragment>
-  );
-};
+  )
+}
 
 const mapStateToProps = (state) => ({
-  shoppingCart: state.shoppingCart
-});
+  shoppingCart: state.cart.shoppingCart
+})
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps)(Header)

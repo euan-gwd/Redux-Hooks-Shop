@@ -1,14 +1,14 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import _isEmpty from 'lodash/isEmpty';
-import { removeFromCart } from '../../store/actions';
-import { FiDelete } from 'react-icons/fi';
-import { calculateTotals } from '../utils';
-import './cart-styles.css';
+import React from 'react'
+import { connect } from 'react-redux'
+import _isEmpty from 'lodash/isEmpty'
+import { removeFromCart } from '../../store/actions'
+import { FiDelete } from 'react-icons/fi'
+import { calculateTotals } from '../utils'
+import './cart-styles.css'
 
 const Cart = ({ shoppingCart, removeFromCart }) => {
-  const cartTotal = calculateTotals(shoppingCart);
-  const tax = (cartTotal * 0.2).toFixed(2);
+  const cartTotal = calculateTotals(shoppingCart)
+  const tax = (cartTotal * 0.2).toFixed(2)
   return (
     <div className="shopping-cart">
       <div className="shopping-cart-header">
@@ -47,17 +47,17 @@ const Cart = ({ shoppingCart, removeFromCart }) => {
         <p className="total-price">{`£ ${cartTotal}`}</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const mapStateToProps = (state) => ({
-  shoppingCart: state.shoppingCart
-});
+  shoppingCart: state.cart.shoppingCart
+})
 
 const mapDispatchToProps = (dispatch) => ({
   removeFromCart: (item) => {
-    dispatch(removeFromCart(item));
+    dispatch(removeFromCart(item))
   }
-});
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+export default connect(mapStateToProps, mapDispatchToProps)(Cart)
