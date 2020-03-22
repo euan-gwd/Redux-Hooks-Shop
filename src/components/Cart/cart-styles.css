@@ -1,0 +1,122 @@
+.shopping-cart {
+  margin: 1rem 0 0.25rem 0;
+  padding: 0.5rem;
+  border: 3px solid var(--alt-bg-color);
+  background: var(--alt-bg-color);
+  height: 19.5rem;
+  position: relative;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-rows: 3rem 1fr 3rem;
+}
+
+.shopping-cart-header {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 0.25rem 0 0;
+  border-bottom: 1px solid var(--item-divider);
+}
+
+.shopping-cart-header .cart-title-text {
+  text-transform: uppercase;
+  font-size: large;
+}
+
+.shopping-cart-header .cart-count {
+  margin-left: 0.5rem;
+  margin-bottom: 0.25rem;
+  padding-right: 0.1rem;
+  background-color: var(--primary);
+  color: var(--alt-text-color);
+  height: 3.8vh;
+  width: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: small;
+  border-radius: 50%;
+}
+
+.shopping-cart .empty-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.shopping-cart .cart-container {
+  overflow-y: scroll;
+}
+
+.shopping-cart .cart-item {
+  display: grid;
+  grid-template-columns: 1fr 4rem;
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  margin-top: 0.25rem;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid var(--item-divider);
+  min-width: 100%;
+}
+
+.cart-item .item-description .title {
+  white-space: break-spaces;
+  font-size: medium;
+  color: var(--main-text-color);
+}
+
+.cart-item .item-description .subtitle {
+  white-space: nowrap;
+  font-size: smaller;
+  color: var(--primary);
+  margin: 0.4rem 0 0;
+}
+
+.item-total {
+  display: grid;
+}
+
+.item-total .item-price {
+  justify-self: end;
+}
+
+.item-total .item-action {
+  font-size: 3vh;
+  color: var(--primary);
+  background: none;
+  justify-self: end;
+  align-self: end;
+  border: none;
+}
+
+.item-total .item-action :hover {
+  cursor: pointer;
+  color: var(--primary-hover);
+}
+
+.shopping-cart .cart-totals {
+  padding: 0.15rem 0.5rem 0;
+  background-color: var(--secondary);
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  grid-template-rows: 2.75rem;
+  align-items: center;
+  height: 46px;
+}
+
+.cart-totals .label-title {
+  font-size: large;
+}
+
+.cart-totals .label-subtitle {
+  color: var(--hidden-text-color);
+  font-size: smaller;
+}
+
+.cart-totals .total-price {
+  align-self: start;
+  justify-self: end;
+  font-size: x-large;
+}

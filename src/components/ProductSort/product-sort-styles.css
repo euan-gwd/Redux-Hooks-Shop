@@ -1,0 +1,31 @@
+.product-sort {
+  margin: 1rem 1rem -0.5rem;
+}
+
+.product-sort .button-group {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(40px, 10vw));
+  column-gap: 10px;
+  justify-content: center;
+}
+
+.product-sort .primary-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  color: var(--primary);
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  width: 100%;
+  min-width: min-content;
+  height: 5vh;
+  min-height: 40px;
+  text-transform: uppercase;
+}
+
+.product-sort .primary-button:hover {
+  color: var(--alt-text-color);
+  background-color: var(--primary-hover);
+  cursor: pointer;
+}

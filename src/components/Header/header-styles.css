@@ -1,0 +1,58 @@
+.App-flex {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.App-heading {
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  font-size: 3vh;
+  box-shadow: 0px 1px 1vh 1px rgba(34, 34, 34, 0.9);
+  z-index: 2;
+  min-height: 10vh;
+  padding: 0 4vw;
+}
+
+.menubar-icon {
+  color: var(--primary-hover);
+  font-size: 4vh;
+}
+
+.menubar-cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: medium;
+  width: auto;
+}
+
+.menubar-total {
+  flex: 1 1 6rem;
+}
+
+.menubar-cart .icon {
+  font-size: 4vh;
+  color: var(--primary);
+}
+
+.menubar-cart .cart-count {
+  margin-left: 0.25rem;
+  background-color: var(--primary);
+  color: var(--alt-text-color);
+  height: 3.5vh;
+  width: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: small;
+  border-radius: 50%;
+}
+
+.App-hero {
+  object-fit: fill;
+  min-width: 100vw;
+  max-width: 100vw;
+  max-height: 40vh;
+}

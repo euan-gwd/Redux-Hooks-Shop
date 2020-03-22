@@ -1,0 +1,13 @@
+.App {
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.shop-container {
+  margin: 3vh 3vw;
+  display: grid;
+  grid-template-columns: 1fr 25vw;
+}

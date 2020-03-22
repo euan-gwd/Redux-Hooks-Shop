@@ -1,0 +1,17 @@
+.products-listing {
+  width: 70%;
+  margin: 1rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  column-gap: 1rem;
+  row-gap: 1rem;
+}
+
+.centered-alerts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  min-width: 50vw;
+}
