@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { addToCart } from '../../store/actions';
-import Button from '../Buttons/Button';
-import Modal from 'react-modal';
-import './product-item-styles.css';
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import { addToCart } from '../../store/actions'
+import Button from '../Buttons/Button'
+import Modal from 'react-modal'
+import './product-item-styles.css'
 
 const ProductItem = ({ product, addToCart }) => {
-  const [isOpen, setModalOpen] = useState(false);
+  const [isOpen, setModalOpen] = useState(false)
   return (
     <div key={product.id} className="product-card">
       <div className="image-container">
@@ -39,13 +39,13 @@ const ProductItem = ({ product, addToCart }) => {
         </div>
       </Modal>
     </div>
-  );
-};
+  )
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (product) => dispatch(addToCart(product))
-  };
-};
+  }
+}
 
-export default connect(null, mapDispatchToProps)(ProductItem);
+export default connect(null, mapDispatchToProps)(ProductItem)
