@@ -1,4 +1,4 @@
-#SHOPPING CART
+# SHOPPING CART
 
 Redux shopping Cart refactored to use redux hooks.
 
