@@ -1,45 +1,34 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { FaSortAlphaDown, FaSortAlphaUp, FaSortAmountDown, FaSortAmountUp } from 'react-icons/fa';
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import { FaSortAlphaDown, FaSortAlphaUp, FaSortAmountDown, FaSortAmountUp } from 'react-icons/fa'
 import {
   sortProductsByTitleAscending,
   sortProductsByTitleDecending,
   sortProductsByPriceAscending,
   sortProductsByPriceDecending
-} from '../../store/actions';
-import './product-sort-styles.css';
+} from '../../store/actions'
+import './product-sort-styles.css'
 
-const ProductSort = ({
-  sortProductsByTitleAscending,
-  sortProductsByTitleDecending,
-  sortProductsByPriceAscending,
-  sortProductsByPriceDecending
-}) => (
-  <div className="product-sort">
-    <div className="button-group">
-      <button className="primary-button" onClick={() => sortProductsByPriceDecending()}>
-        <FaSortAmountDown /> Price
-      </button>
-      <button className="primary-button" onClick={() => sortProductsByPriceAscending()}>
-        <FaSortAmountUp /> Price
-      </button>
-      <button className="primary-button" onClick={() => sortProductsByTitleAscending()}>
-        <FaSortAlphaDown /> Title
-      </button>
-      <button className="primary-button" onClick={() => sortProductsByTitleDecending()}>
-        <FaSortAlphaUp /> Title
-      </button>
+const ProductSort = () => {
+  const dispatch = useDispatch()
+  return (
+    <div className="product-sort">
+      <div className="button-group">
+        <button className="primary-button" onClick={() => dispatch(sortProductsByTitleAscending())}>
+          <FaSortAmountDown /> Price
+        </button>
+        <button className="primary-button" onClick={() => dispatch(sortProductsByTitleDecending())}>
+          <FaSortAmountUp /> Price
+        </button>
+        <button className="primary-button" onClick={() => dispatch(sortProductsByPriceAscending())}>
+          <FaSortAlphaDown /> Title
+        </button>
+        <button className="primary-button" onClick={() => dispatch(sortProductsByPriceDecending())}>
+          <FaSortAlphaUp /> Title
+        </button>
+      </div>
     </div>
-  </div>
-);
+  )
+}
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    sortProductsByTitleAscending: () => dispatch(sortProductsByTitleAscending()),
-    sortProductsByTitleDecending: () => dispatch(sortProductsByTitleDecending()),
-    sortProductsByPriceAscending: () => dispatch(sortProductsByPriceAscending()),
-    sortProductsByPriceDecending: () => dispatch(sortProductsByPriceDecending())
-  };
-};
-
-export default connect(null, mapDispatchToProps)(ProductSort);
+export default ProductSort

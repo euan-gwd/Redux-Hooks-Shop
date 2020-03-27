@@ -50,7 +50,7 @@ export const removeFromCart = (product) => {
 
 export const sortProductsByTitleAscending = () => {
   return (dispatch, getState) => {
-    const products = getState().products
+    const products = getState().products.products
     const sortedProducts = _orderBy(products, ['title'], ['asc'])
     dispatch({ type: actionTypes.SORT_PRODUCTS_TITLE_ASC, payload: sortedProducts })
   }
@@ -58,7 +58,7 @@ export const sortProductsByTitleAscending = () => {
 
 export const sortProductsByTitleDecending = () => {
   return (dispatch, getState) => {
-    const products = getState().products
+    const products = getState().products.products
     const sortedProducts = _orderBy(products, ['title'], ['desc'])
     dispatch({ type: actionTypes.SORT_PRODUCTS_TITLE_DESC, payload: sortedProducts })
   }
@@ -66,7 +66,7 @@ export const sortProductsByTitleDecending = () => {
 
 export const sortProductsByPriceAscending = () => {
   return (dispatch, getState) => {
-    const products = getState().products
+    const products = getState().products.products
     const sortedProducts = _orderBy(products, ['price'], ['asc'])
     dispatch({ type: actionTypes.SORT_PRODUCTS_PRICE_ASC, payload: sortedProducts })
   }
@@ -74,7 +74,7 @@ export const sortProductsByPriceAscending = () => {
 
 export const sortProductsByPriceDecending = () => {
   return (dispatch, getState) => {
-    const products = getState().products
+    const products = getState().products.products
     const sortedProducts = _orderBy(products, ['price'], ['desc'])
     dispatch({ type: actionTypes.SORT_PRODUCTS_PRICE_DESC, payload: sortedProducts })
   }
