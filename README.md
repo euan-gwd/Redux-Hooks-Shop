@@ -1,3 +1,7 @@
+#SHOPPING CART
+
+Redux shopping Cart refactored to use redux hooks.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
