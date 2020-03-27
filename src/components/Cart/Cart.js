@@ -1,12 +1,14 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import _isEmpty from 'lodash/isEmpty'
 import { removeFromCart } from '../../store/actions'
 import { FiDelete } from 'react-icons/fi'
 import { calculateTotals } from '../utils'
 import './cart-styles.css'
 
-const Cart = ({ shoppingCart, removeFromCart }) => {
+const Cart = () => {
+  const shoppingCart = useSelector((state) => state.cart.shoppingCart)
+  const dispatch = useDispatch()
   const cartTotal = calculateTotals(shoppingCart)
   const tax = (cartTotal * 0.2).toFixed(2)
   return (
@@ -30,7 +32,7 @@ const Cart = ({ shoppingCart, removeFromCart }) => {
               </div>
               <div className="item-total">
                 <p className="item-price">{`£ ${item.price}`}</p>
-                <button className="item-action" onClick={() => removeFromCart(item)}>
+                <button className="item-action" onClick={() => dispatch(removeFromCart(item))}>
                   <FiDelete />
                 </button>
               </div>
@@ -50,14 +52,4 @@ const Cart = ({ shoppingCart, removeFromCart }) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  shoppingCart: state.cart.shoppingCart
-})
-
-const mapDispatchToProps = (dispatch) => ({
-  removeFromCart: (item) => {
-    dispatch(removeFromCart(item))
-  }
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Cart)
+export default Cart

@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react'
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 import billboard from './billboard.png'
 import Logo from '../Logo/Logo'
 import { MdSort, MdShoppingCart } from 'react-icons/md'
 import { calculateTotals } from '../utils'
 import './header-styles.css'
 
-const Header = ({ shoppingCart }) => {
+const Header = () => {
+  const shoppingCart = useSelector((state) => state.cart.shoppingCart)
   const cartTotal = calculateTotals(shoppingCart)
   return (
     <Fragment>
@@ -20,14 +21,10 @@ const Header = ({ shoppingCart }) => {
         <MdSort className="menubar-icon" />
       </div>
       <div>
-        <img className="App-hero" src={billboard} alt="hero image" />
+        <img className="App-hero" src={billboard} alt="hero" />
       </div>
     </Fragment>
   )
 }
 
-const mapStateToProps = (state) => ({
-  shoppingCart: state.cart.shoppingCart
-})
-
-export default connect(mapStateToProps)(Header)
+export default Header
