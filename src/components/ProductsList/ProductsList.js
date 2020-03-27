@@ -1,10 +1,13 @@
-import React, { Fragment } from 'react'
-import { connect } from 'react-redux'
-import Button from '../Buttons/Button'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import ProductItem from './ProductItem'
 import './product-list-styles.css'
 
-const ProductsList = ({ products, productsLoading, productsError }) => {
+const ProductsList = () => {
+  const productsLoading = useSelector((state) => state.products.productsLoading)
+  const productsError = useSelector((state) => state.products.productsError)
+  const products = useSelector((state) => state.products.products)
+
   if (productsLoading) {
     return <div className="centered-alerts">{`Loading...`}</div>
   }
@@ -22,10 +25,4 @@ const ProductsList = ({ products, productsLoading, productsError }) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  productsLoading: state.products.productsLoading,
-  productsError: state.products.productsError,
-  products: state.products.products
-})
-
-export default connect(mapStateToProps)(ProductsList)
+export default ProductsList

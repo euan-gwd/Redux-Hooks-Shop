@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
-import { connect } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { addToCart } from '../../store/actions'
 import Button from '../Buttons/Button'
 import Modal from 'react-modal'
 import './product-item-styles.css'
 
-const ProductItem = ({ product, addToCart }) => {
+const ProductItem = ({ product }) => {
+  const dispatch = useDispatch()
   const [isOpen, setModalOpen] = useState(false)
   return (
     <div key={product.id} className="product-card">
       <div className="image-container">
-        <img src={product.images[0].src} alt="product Image" className="product-image" />
+        <img src={product.images[0].src} alt="product" className="product-image" />
       </div>
       <div className="card-content">
         <div className="description">
@@ -20,7 +21,7 @@ const ProductItem = ({ product, addToCart }) => {
         <p className="size">{product.option1}</p>
       </div>
       <div className="button-group">
-        <Button className="primary-button" onClick={() => addToCart(product)}>
+        <Button className="primary-button" onClick={() => dispatch(addToCart(product))}>
           Add to Cart
         </Button>
         <Button className="secondary-button" onClick={() => setModalOpen(true)}>
@@ -30,7 +31,7 @@ const ProductItem = ({ product, addToCart }) => {
       <Modal isOpen={isOpen} className="product-modal" onRequestClose={() => setModalOpen(false)}>
         <div className="product-modal-body">
           <div className="image-container">
-            <img src={product.images[0].src} alt="product Image" className="product-image" />
+            <img src={product.images[0].src} alt="product" className="product-image" />
           </div>
           <div className="modal-description">
             <p>{product.title}</p>
@@ -42,10 +43,4 @@ const ProductItem = ({ product, addToCart }) => {
   )
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addToCart: (product) => dispatch(addToCart(product))
-  }
-}
-
-export default connect(null, mapDispatchToProps)(ProductItem)
+export default ProductItem
